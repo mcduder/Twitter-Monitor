@@ -1,14 +1,8 @@
 {
   "Discord": {
-    "webhook": "..."
+    "webhook": "https://discordapp.com/api/webhooks/619960327903117322/4k5RpvqTbkOMMuXYE6HTVAX2a6BMr2UDEPIpMBL9ilOw-HAwqCCknCn3RNnDqev2rjJe"
   },
   "Twitter": {
-    "Keys": {
-      "consumer_key": "...",
-      "consumer_secret": "...",
-      "access_token": "...",
-      "access_token_secret": "..."
-    },
     "Accounts": [
       "@Cybersole",
       "@destroyerbots",
