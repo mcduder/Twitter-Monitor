@@ -58,7 +58,7 @@ const monitor = () => {
     // Looping through all userIds
     if (userIds.includes(tweet.user.id_str)) {
       // Tweet Reply?
-      if (!isReply(tweet) === true) {
+      if (isReply(tweet) !== true) {
         log.green("New Tweet");
         discord.sendHook(tweet);
 
