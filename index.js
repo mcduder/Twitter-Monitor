@@ -1,4 +1,5 @@
 // Importing Required Packages
+require('dotenv').config();
 const Twit = require("twit");
 // Local Imports
 const config = require("./config");
@@ -7,8 +8,14 @@ const discord = require("./Classes/discord");
 const ocr = require("./Classes/ocr");
 
 // Initializing Twit Client
-const T = new Twit(config.Twitter.Keys);
+const keys = {
+  consumer_key: process.env.consumer_key,
+  consumer_secret: process.env.consumer_secret,
+  access_token: process.env.access_token,
+  access_token_secret: process.env.access_token_secret
+};
 
+const T = new Twit(keys);
 let userIds = [];
 const init = () => {
   log.green("Initializing Monitor!");
@@ -51,7 +58,7 @@ const monitor = () => {
     // Looping through all userIds
     if (userIds.includes(tweet.user.id_str)) {
       // Tweet Reply?
-      if (!isReply(tweet) === true) {
+      if (isReply(tweet) !== true) {
         log.green("New Tweet");
         discord.sendHook(tweet);
 
