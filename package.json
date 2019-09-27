@@ -19,8 +19,9 @@
   "homepage": "https://github.com/ezolla/Twitter-Monitor#readme",
   "dependencies": {
     "chalk": "^2.4.2",
-    "discord.js": "^11.4.2",
+    "discord.js": "^11.5.1",
     "moment": "^2.24.0",
+    "node-base64-image": "^1.0.6",
     "request-promise": "^4.2.4",
     "tesseract.js": "^1.0.14",
     "twit": "^2.2.11"
