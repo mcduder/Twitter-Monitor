@@ -1,10 +1,17 @@
+require('dotenv').config();
 const Discord = require("discord.js");
-const config = require("./config.json");
 const Twit = require("twit");
 const client = new Discord.Client();
 const base64 = require("node-base64-image");
 
-const T = new Twit(config.Twitter.Keys);
+const keys = {
+  consumer_key: process.env.consumer_key,
+  consumer_secret: process.env.consumer_secret,
+  access_token: process.env.access_token,
+  access_token_secret: process.env.access_token_secret
+};
+
+const T = new Twit(keys);
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -140,4 +147,4 @@ client.on("message", msg => {
   }
 });
 
-client.login(config.token);
+client.login(process.env.token);

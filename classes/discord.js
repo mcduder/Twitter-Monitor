@@ -1,8 +1,9 @@
 // Importing Required Packages
 const request = require("request-promise");
 // Local Imports
-const config = require("../config");
 const log = require("./log");
+
+const webhook = process.env.webhook;
 
 module.exports = {
   /**
@@ -39,7 +40,7 @@ module.exports = {
 
     return new Promise((resolve, reject) => {
       request({
-        url: config.Discord.webhook,
+        url: webhook,
         method: "POST",
         json: {
           username: tweet.user.name,
@@ -90,7 +91,7 @@ module.exports = {
   sendOcr: (tweet, text) => {
     return new Promise((resolve, reject) => {
       request({
-        url: config.Discord.webhook,
+        url: webhook,
         method: "POST",
         json: {
           username: tweet.user.name,
