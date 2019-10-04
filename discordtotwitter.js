@@ -1,8 +1,9 @@
-require('dotenv').config();
+const { workerData, parentPort } = require('worker_threads');
 const Discord = require("discord.js");
 const Twit = require("twit");
 const client = new Discord.Client();
 const base64 = require("node-base64-image");
+const log = require("./classes/log");
 const ebayviewer = require('./ebayviewer');
 const config = require('./config');
 
@@ -16,7 +17,7 @@ const keys = {
 const T = new Twit(keys);
 
 client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  log.cyan(`Logged in as ${client.user.tag}!`);
 });
 
 client.on("message", msg => {
